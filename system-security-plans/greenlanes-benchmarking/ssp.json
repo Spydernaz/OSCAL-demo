@@ -2,27 +2,45 @@
   "system-security-plan": {
     "uuid": "999839b5-5c85-404a-8af5-a43b628b7e35",
     "metadata": {
-      "title": "GREENLANES SSP for Engagement Metadata Controls",
-      "last-modified": "2025-11-14T13:42:00Z",
-      "version": "1.0.0",
-      "oscal-version": "1.0.4"
+        "title": "GREENLANES SSP for Engagement Metadata Controls",
+        "last-modified": "2025-11-14T13:42:00Z",
+        "version": "1.0.0",
+        "oscal-version": "1.0.4",
+        "roles": [
+            {
+            "id": "author",
+            "title": "SSP Author"
+            }
+        ],
+        "parties": [
+            {
+            "uuid": "party-001",
+            "type": "organization",
+            "name": "GREENLANES Consulting"
+            }
+        ]
     },
     "import-profile": {
-      "href": "https://raw.githubusercontent.com/GSA/fedramp-automation/release/fedramp1.0.0-oscal1.0.0/baselines/rev4/json/FedRAMP_rev4_MODERATE-baseline_profile.json",
-      "remarks": "This example points to the FedRAMP Rev 4 Moderate baseline that is part of the official FedRAMP 1.0.0 release.\n\nMust adjust accordingly for applicable baseline and revision."
+      "href": "https://raw.githubusercontent.com/Spydernaz/OSCAL-demo/refs/heads/master/catalogs/GREENLANES-Benchmark-resolved.json/catalog.json",
+      "remarks": "demo repo to hold my controls "
     },
-
     "system-characteristics": {
-      "system-name": "Purview Engagement Metadata System",
-      "system-description": "This system uses Microsoft Purview to manage and assess engagement metadata for compliance.",
-      "system-information": {
-        "information-types": [
-          {
-            "title": "Engagement Metadata",
-            "description": "Metadata describing client engagements, including status, sector, and channel."
-          }
-        ]
-      }
+        "system-ids": [
+            {
+                "id": "saas_system_iaas_customer"
+            }
+        ],
+        "system-name": "Purview Engagement Metadata System",
+        "description": "This system uses Microsoft Purview to manage and assess engagement metadata for compliance.",
+        "system-information": {
+            "information-types": [
+            {
+                "uuid": "2ec277f9-46ae-4e5f-8e82-760d962e6504",
+                "title": "Engagement Metadata",
+                "description": "Metadata describing client engagements, including status, sector, and channel."
+            }
+            ]
+        }
     },
     "system-implementation": {
       "components": [
