@@ -1,0 +1,48 @@
+{
+  "profile": {
+    "uuid": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "metadata": {
+      "title": "GREENLANES Benchmarking Profile",
+      "last-modified": "2025-11-14T12:00:00Z",
+      "version": "1.0.0",
+      "oscal-version": "1.0.4"
+    },
+    "imports": [
+      {
+        "href": "catalogs/COMPANXYZ_OSCAL_catalog.json",
+        "include-controls": [
+        {"with-ids":["em-1", "em-2", "id-1"]}
+    ]
+      }
+    ],
+    "modify": {
+      "set-parameters": [
+        {
+          "param-id": "em-1_status",
+          "values": ["closed"]
+        },
+        {
+          "param-id": "em-2_sector",
+          "values": ["Finance", "IT"]
+        }
+    ],
+        "alters": [
+            {
+                "control-id": "em-2",
+                "adds": [
+                {
+                    "position": "ending",
+                    "by-id": "remark-em-2",
+                    "parts": [
+                    {
+                        "name": "remarks",
+                        "prose": "Must not use Govt. clients."
+                    }
+                    ]
+                }
+                ]
+            }
+        ]
+    }
+  }
+}

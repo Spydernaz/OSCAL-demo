@@ -1,0 +1,88 @@
+{
+  "catalog": {
+    "uuid": "5843de56-389b-477a-8724-c30c6da6e34c",
+    "metadata": {
+      "title": "GREENLANES Benchmarking Profile",
+      "last-modified": "2025-11-14T12:00:00+00:00",
+      "version": "1.0.0",
+      "oscal-version": "1.1.2",
+      "links": [
+        {
+          "href": "catalogs/COMPANXYZ_OSCAL_catalog.json",
+          "rel": "resolution-source"
+        }
+      ]
+    },
+    "controls": [
+      {
+        "id": "em-1",
+        "title": "Permissible Engagement Status",
+        "params": [
+          {
+            "id": "em-1_status",
+            "label": "Engagement Status",
+            "values": [
+              "closed"
+            ]
+          }
+        ],
+        "props": [
+          {
+            "name": "priority",
+            "value": "high"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "The engagement must be in a peremissible status as defined by COMPANXYZ policies."
+          }
+        ]
+      },
+      {
+        "id": "em-2",
+        "title": "Client Sector",
+        "params": [
+          {
+            "id": "em-2_sector",
+            "label": "Client Sector",
+            "values": [
+              "Finance",
+              "IT"
+            ],
+            "select": {
+              "how-many": "one-or-more",
+              "choice": ["IT", "Finance"]
+            }
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "The engagement's client sector must be identified and permissible."
+          }
+        ]
+      },
+      {
+        "id": "id-1",
+        "title": "Channel restrictions are met",
+        "params": [
+          {
+            "id": "id-1_channel",
+            "label": "Client Channel",
+            "values": [
+              "2"
+            ]
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Engagements must adhere to channel restrictions as defined by COMPANXYZ independence policies."
+          }
+        ]
+      }
+    ],
+    "back-matter": {}
+  }
+}

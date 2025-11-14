@@ -1,0 +1,9 @@
+{
+  "control-id": "em-1",
+  "timestamp": "2025-11-14T02:40:09.208012Z",
+  "guid": "123",
+  "actual-status": "closed",
+  "expected-status": "closed",
+  "status": "pass",
+  "details": "Purview status was 'closed'"
+}
