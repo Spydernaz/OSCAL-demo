@@ -1,0 +1,94 @@
+{
+  "assessment-plan": {
+    "uuid": "a7c94fb0-c985-4d98-ac1e-d02530bdc6d6",
+    "metadata": {
+      "title": "Assessment Plan for EM1 and EM2 Metadata Controls",
+      "last-modified": "2025-11-14T15:12:00+11:00",
+      "version": "1.0.0",
+      "oscal-version": "1.1.3"
+    },
+    "import-ssp":{},
+    "reviewed-controls": [
+        {"include-controls":[{"control-id": "em-1"},{"control-id": "em-2"}]}
+    ],
+    "local-definitions": {
+        "subjects":[
+            {
+                "uuid": "08171093-6590-47f8-8a5f-35ea0804ebec",
+                "type": "data-product",
+                "title": "Potential Greenlanes Data Product",
+                "description": "A data product that may be used in the Greenlanes benchmarking.",
+                "props":[{"name":"GUID","value":"123"}]
+            }
+        ],
+        "activities": [
+        {
+          "uuid": "a1b2c3d4-5678-4e90-abcd-1234567890ab",
+          "title": "Check engagement status",
+          "description": "Run script to verify that the Purview entity's status is 'closed'.",
+          "methods": ["TESTING"],
+          "subjects": [
+            {
+              "subject-uuid": "d1e2f3a4-b5c6-4d7e-8f9a-0b1c2d3e4f5a"
+            }
+          ],
+          "props": [
+            {
+              "name": "script",
+              "value": "controls/em-1/check_em1_status.py"
+            },
+            {
+              "name": "expected-status",
+              "value": "closed"
+            }
+          ]
+        },
+        {
+          "uuid": "b2c3d4e5-6789-4f01-bcde-2345678901bc",
+          "title": "Check engagement sector",
+          "description": "Run script to verify that the Purview entity's sector is in the allowed list.",
+          "methods": ["TESTING"],
+          "subjects": [
+            {
+              "subject-uuid": "d1e2f3a4-b5c6-4d7e-8f9a-0b1c2d3e4f5a"
+            }
+          ],
+          "props": [
+            {
+              "name": "script",
+              "value": "controls/em-2/check_em2_sector.py"
+            },
+            {
+              "name": "allowed-sectors",
+              "value": "finance,health,education"
+            }
+          ]
+        }
+      ]
+    },
+    "tasks": [
+      {
+        "uuid": "c3d4e5f6-7890-4a12-cdef-3456789012cd",
+        "type": "automated",
+        "title": "Run EM-1 metadata check",
+        "description": "Execute the EM-1 control test for GUID 123",
+        "associated-activities": [
+          {
+            "activity-uuid": "a1b2c3d4-5678-4e90-abcd-1234567890ab"
+          }
+        ]
+      },
+      {
+        "uuid": "d4e5f6a7-8901-4b23-def0-4567890123de",
+        "type": "automated",
+        "title": "Run EM-2 metadata check",
+        "description": "Execute the EM-2 control test for GUID 123",
+        "associated-activities": [
+          {
+            "activity-uuid": "b2c3d4e5-6789-4f01-bcde-2345678901bc"
+          }
+        ]
+      }
+    ]
+  }
+}

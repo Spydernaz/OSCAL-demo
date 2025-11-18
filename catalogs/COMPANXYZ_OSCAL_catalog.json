@@ -4,8 +4,8 @@
     "metadata": {
       "title": "COMPANXYZ Compliance Control Catalog",
       "last-modified": "2025-11-14T10:30:00Z",
-      "version": "1.0.0",
-      "oscal-version": "1.0.4",
+      "version": "1.0.1",
+      "oscal-version": "1.1.3",
       "roles": [
         {
           "id": "author",
@@ -16,7 +16,9 @@
         {
           "uuid": "cfff104c-42b1-4d85-949c-6a28b8d7075f",
           "type": "organization",
-          "name": "COMPANXYZ"
+          "name": "COMPANXYZ inc.",
+          "email-addresses": ["fake-email@fakeit.com"],
+          "addresses":[{"addr-lines":["200 Wallaby Way, Sydney"], "city":"Sydney", "state":"NSW", "postal-code":"2000", "country":"Australia"}]
         }
       ]
     },
@@ -24,6 +26,9 @@
       {
         "id": "engagement-metadata",
         "title": "Engagement Metadata",
+        "props":[
+          {"name":"label","value":"Engagement Metadata Controls"}
+        ],
         "controls": [
           {
             "id": "em-1",
@@ -31,8 +36,18 @@
             "params":[
               {
                 "id":"em-1_status",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "EM-1 Status Parameter"
+                  }
+                ],
                 "label":"Engagement Status",
-                "values":["active", "closed", "open"]
+                "guidelines":[{"prose":"The status of the engagement must be one of the following values."}],
+                "select":{
+                  "how-many":"one-or-more",
+                  "choice":["active", "closed", "open"]
+                }
               }
             ],
             "props": [
@@ -43,8 +58,43 @@
             ],
             "parts": [
               {
+                "id":"em-1_stmt.a.1",
                 "name": "statement",
-                "prose": "The engagement must be in a peremissible status as defined by COMPANXYZ policies."
+                "prose": "The engagement must be in a peremissible status ( {{ insert: param, em-1_status }} ) as defined by COMPANXYZ policies."
+              }
+            ]
+          },
+          {
+            "id": "em-1n",
+            "title": "Non-Permissible Engagement Status",
+            "params":[
+              {
+                "id":"em-1n_status",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "EM-1n Status Parameter"
+                  }
+                ],
+                "label":"Engagement Status",
+                "guidelines":[{"prose":"The status of the engagement must NOT be one of the following values."}],
+                "select":{
+                  "how-many":"one-or-more",
+                  "choice":["active", "closed", "open"]
+                }
+              }
+            ],
+            "props": [
+              {
+                "name": "priority",
+                "value": "high"
+              }
+            ],
+            "parts": [
+              {
+                "id":"em-1n_stmt.a.1",
+                "name": "statement",
+                "prose": "The engagement must not be in a non-permissible status ( {{ insert: param, em-1n_status }} ) as defined by COMPANXYZ policies."
               }
             ]
           },
